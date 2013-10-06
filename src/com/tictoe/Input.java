@@ -7,6 +7,7 @@ public class Input {
     private Field field = new Field();
     private Scanner in = new Scanner(System.in);
     private ArrayList<Field> list = new ArrayList<Field>();
+
     public Input(Field field) {
         this.field = field;
         list.add(new Field());
@@ -15,28 +16,28 @@ public class Input {
     private Field coordinates(String s) {
         int number;
         if (s.equals("X")) {
-           number = 1;
+            number = 1;
         } else {
             number = -1;
         }
         while (true) {
             System.out.println("Input coordinates " + s);
-                String s1 = in.nextLine();
-                String s2 = in.nextLine();
-                if (checkString(s1) && checkString(s2)) {
+            String s1 = in.nextLine();
+            String s2 = in.nextLine();
+            if (checkString(s1) && checkString(s2)) {
 
-                    int i = Integer.parseInt(s1);
-                    int j = Integer.parseInt(s2);
-                    if (i >= field.getSizeField() || j >= field.getSizeField() ||
-                            field.getFieldArray()[i][j] == number || field.getFieldArray()[i][j] == -number) {
-                        System.out.println("Error input coordinates " + s);
-                    } else {
-                        field.setFieldArray(i, j, number);
-                        break;
-                    }
-                } else {
+                int i = Integer.parseInt(s1);
+                int j = Integer.parseInt(s2);
+                if (i >= field.getSizeField() || j >= field.getSizeField() ||
+                        field.getFieldArray()[i][j] == number || field.getFieldArray()[i][j] == -number) {
                     System.out.println("Error input coordinates " + s);
+                } else {
+                    field.setFieldArray(i, j, number);
+                    break;
                 }
+            } else {
+                System.out.println("Error input coordinates " + s);
+            }
 
         }
         return field;
@@ -67,7 +68,7 @@ public class Input {
                 }
                 field = this.coordinates(s);
                 Field clone;
-                try{
+                try {
 
                     clone = field.clone();
                     list.add(clone);
@@ -110,9 +111,9 @@ public class Input {
 
     public void history() {
         View view = new View();
-        for (Field field: list) {
+        for (Field field : list) {
             System.out.println("--------------");
-                view.draw(field);
+            view.draw(field);
         }
     }
 }
