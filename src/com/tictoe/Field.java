@@ -92,6 +92,7 @@ public class Field implements Cloneable {
         this.player = player;
     }
 
+
     public Field clone() throws CloneNotSupportedException {
         Field field = (Field)super.clone();
         int[][] fieldArray = new int[sizeField ][sizeField ];
