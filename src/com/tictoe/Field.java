@@ -83,6 +83,7 @@ public class Field implements Cloneable {
         this.fieldArray = fieldArray;
     }
 
+
     public void setWin(boolean win) {
         this.win = win;
     }
