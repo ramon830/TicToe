@@ -2,18 +2,26 @@ package com.tictoe;
 
 
 public class View {
-    private Field field = new Field();
 
-    public View(Field field) {
-        this.field = field;
-    }
+    public void draw(Field field) {
 
-    public void draw() {
         for (int i = 0; i < field.getSizeField(); i++) {
+
             for (int j = 0; j < field.getSizeField(); j++) {
-                System.out.print("[" + field.getFieldArray()[i][j] + "]");
+                char c = 0;
+                if (field.getFieldArray()[i][j] == 1) {
+                    c = 'X';
+                }
+                if (field.getFieldArray()[i][j] == -1) {
+                    c = '0';
+                }
+                if (field.getFieldArray()[i][j] == 0) {
+                    c = ' ';
+                }
+                System.out.print("[" + c + "]");
             }
             System.out.println();
         }
+
     }
 }
