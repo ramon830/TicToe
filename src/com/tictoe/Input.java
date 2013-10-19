@@ -1,12 +1,13 @@
 package com.tictoe;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Input {
     private Field field = new Field();
     private Scanner in = new Scanner(System.in);
-    private ArrayList<Field> list = new ArrayList<Field>();
+    private List<Field> list = new ArrayList<Field>();
 
     public Input(Field field) {
         this.field = field;
